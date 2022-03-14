@@ -1,0 +1,120 @@
+.footer__row {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+
+	min-height: 150px;
+
+	@media (max-width: 768px) {
+		flex-direction: column;
+		justify-content: center;
+
+		min-height: 190px;
+
+		& > * {
+			margin: 0px 0px 10px 0px; //! не знаю откуда - подгоняю по пиксель перфекту
+		}
+	}
+}
+
+.footer__info {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+
+	@media (max-width: 768px) {
+		margin-left: 10px; //! не знаю откуда - подгоняю по пиксель перфекту
+	}
+}
+
+.info {
+	& > * {
+		margin: 0px 20px 0px 0px;
+	}
+
+	@media (max-width: 768px) {
+		line-height: 25px;
+	}
+}
+
+.info__link {
+	display: block;
+	color: inherit;
+	font-family: inherit;
+	line-height: calc(50 / 20 * 100%);
+
+	transition: all 0.3s ease 0s;
+
+	&:hover {
+		color: #bdae82;
+	}
+
+	@media (max-width: 768px) {
+		line-height: 25px;
+	}
+}
+
+.footer__link {
+	display: block;
+	color: inherit;
+	font-family: inherit;
+	line-height: calc(50 / 20 * 100%);
+
+	transition: all 0.3s ease 0s;
+
+	&:hover {
+		color: #bdae82;
+	}
+
+	@media (max-width: 768px) {
+		line-height: 45px;
+	}
+}
+
+.social {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+
+	& > *:not(:last-child) {
+		margin: 0px 20px 0px 0px;
+	}
+}
+
+.social__link {
+	display: block;
+	width: 32px;
+	height: 32px;
+
+	transition: 0.3s;
+
+	cursor: pointer;
+
+	&:hover {
+		filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%) contrast(87%);
+	}
+}
+
+.social__link_inst {
+	background-image: url("assets/svg/footer-instagram.svg");
+	background-size: contain;
+	background-repeat: no-repeat;
+}
+
+.social__link_fb {
+	background-image: url("assets/svg/footer-facebook.svg");
+	background-size: contain;
+	background-repeat: no-repeat;
+}
+
+.social__link_twit {
+	background-image: url("assets/svg/footer-twitter.svg");
+	background-size: contain;
+	background-repeat: no-repeat;
+}
+
+.social__link_pin {
+	background-image: url("assets/svg/footer-pinterest.svg");
+	background-size: contain;
+	background-repeat: no-repeat;
+}

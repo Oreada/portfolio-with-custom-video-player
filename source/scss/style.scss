@@ -1,0 +1,1007 @@
+// Файл обнуляющих стилей
+@import "_nullstyle";
+
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	height: 100%;
+	line-height: 1;
+	font-size: 20px;
+	font-weight: 400;
+	color: #ffffff;
+	font-family: Inter;
+	background-color: #000; //! чёрный цвет тянется на всю ширину страницы
+
+	&._lock {
+		overflow: hidden; //! добавляем класс "_lock" в JS для запрета прокрутки при активном меню-бургере
+	}
+}
+
+// ОБОЛОЧКА
+.wrapper {
+	width: 100%;
+	min-height: 100%;
+	// overflow: hidden;  //! пока убрала для проверки адаптивности
+	display: flex;
+	flex-direction: column;
+}
+
+// ОСНОВНАЯ СЕТКА
+._container {
+	max-width: 1400px;
+	padding: 0px 20px; //! отступы безопасности
+	margin: 0px auto; //! позволяет контейнеру выстроиться посередине
+	box-sizing: content-box;
+	//! Переключили контейнер с border-box на content-box после добавления паддинга, чтобы паддинг не считался частью max-width
+}
+
+._container-wide {
+	max-width: 1440px;
+	margin: 0px auto; //! позволяет контейнеру выстроиться посередине
+}
+
+//================================================================================================
+
+// Подключение header
+@import "_header";
+
+//================================================================================================
+
+// ОСНОВНОЙ БЛОК: CONTENT
+
+//======== main ===================================================================================
+
+.button {
+	position: relative; //! для того чтобы правильно работал сложный эффект на кнопках
+
+	min-height: 55px;
+	width: 220px;
+	border-radius: 0px;
+
+	font-family: inherit;
+	font-size: 20px;
+	line-height: calc(40 / 20 * 100%);
+	color: #bdae82;
+	background-color: transparent;
+	border: 2px solid #bdae82;
+
+	padding: 5px; //! отступы безопасности
+
+	cursor: pointer;
+	transition: all 0.5s ease 0s;
+
+	&:hover {
+		color: #ffffff;
+	}
+}
+
+.button_fill {
+	background-color: #bdae82;
+	color: #000000;
+}
+
+.wrapper-title {
+	max-width: 50%;
+	margin: 0 auto;
+
+	background-image: url("assets/img/section-title-line.png");
+	background-repeat: no-repeat;
+	background-position: center center;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	margin-bottom: 60px;
+
+	@media (max-width: 768px) {
+		min-width: 364px;
+
+		background-image: url("assets/img/section-title-line-tablet.png");
+
+		margin-bottom: 50px;
+	}
+
+	@media (max-width: 520px) {
+		min-width: 280px;
+	}
+}
+
+.section-title {
+	font-family: Merriweather;
+	font-style: normal;
+	font-weight: 700;
+	font-size: 40px;
+	line-height: calc(80 / 40 * 100%);
+	color: #bdae82;
+
+	background-color: #000;
+
+	padding: 0px 20px;
+
+	@media (max-width: 768px) {
+		font-size: 32px;
+		line-height: calc(80 / 32 * 100%);
+	}
+}
+
+//======== hero ==================================================================================
+
+.hero__container {
+	padding: 160px 80px 0px 80px; //! правые 80 - отступы безопасности
+
+	height: 820px; //! 910px-90рх в хедере
+	background-image: url("assets/img/hero-bg.jpg");
+	background-position: center -90px;
+	background-repeat: no-repeat;
+
+	@media (max-width: 768px) {
+		padding: 78px 50px 0px 60px; //! правые 50 - отступы безопасности
+
+		height: 500px; //! 590рх-90рх в хедере
+		background-image: url("assets/img/hero-bg-tablet.jpg");
+	}
+
+	@media (max-width: 650px) {
+		background-position: right -90px;
+	}
+}
+
+.hero__box {
+	max-width: 470px;
+
+	@media (max-width: 768px) {
+		max-width: 390px;
+	}
+}
+
+.hero__name {
+	font-family: Merriweather;
+	font-weight: 700;
+	font-size: 60px;
+	line-height: calc(120 / 60 * 100%);
+
+	margin-bottom: 10px;
+
+	@media (max-width: 768px) {
+		font-size: 32px;
+		line-height: calc(64 / 32 * 100%);
+		font-weight: 400;
+
+		margin-bottom: 20px;
+	}
+
+	@media (max-width: 650px) {
+		text-shadow: 6px 6px 5px rgba(0, 0, 0, 1); //! осьХ осьУ диаметрРазмытия цвет
+	}
+}
+
+.hero__text {
+	line-height: calc(40 / 20 * 100%);
+
+	margin-bottom: 25px;
+
+	@media (max-width: 768px) {
+		font-size: 20px;
+		line-height: calc(24 / 20 * 100%);
+
+		margin-bottom: 58px; //! по макету 60рх, но при 60рх внизу секции появляется белая полоса
+	}
+
+	@media (max-width: 650px) {
+		text-shadow: 6px 6px 5px rgba(0, 0, 0, 1); //! осьХ осьУ диаметрРазмытия цвет
+	}
+}
+
+.hero__button:active {
+	background-color: transparent;
+	border: 2px solid #bdae82;
+}
+
+//======== skills ===============================================================================
+
+.skills__container {
+	padding-top: 100px;
+
+	@media (max-width: 768px) {
+		padding-top: 80px;
+
+		max-width: 644px;
+	}
+}
+
+.skills__wrapper-title {
+	@media (max-width: 768px) {
+		margin-bottom: 45px;
+	}
+}
+
+.skills__row {
+	display: flex;
+	justify-content: center;
+
+	margin: 0px -20px;
+	margin-bottom: -36px;
+
+	@media (max-width: 1100px) {
+		flex-wrap: wrap;
+	}
+}
+
+.skills__column {
+	flex: 0 1 25%;
+	padding: 0px 20px;
+	margin-bottom: 36px; //! в сочетании с margin-bottom: -36px; для skills__row даёт отступы между карточками при врапе, но без нижнего
+
+	@media (max-width: 1100px) {
+		flex: 0 1 50%;
+
+		padding: 0px 22px;
+	}
+
+	@media (max-width: 520px) {
+		flex: 0 1 100%;
+	}
+}
+
+.skills__item {
+	padding: 0px 20px 10px 20px;
+
+	@media (max-width: 768px) {
+		padding: 0px 10px 40px 8px;
+	}
+}
+
+.item-skill {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.item-skill__logo {
+	margin-bottom: 50px;
+
+	@media (max-width: 768px) {
+		margin-bottom: 30px;
+	}
+}
+
+.item-skill__logo_digital {
+	height: 50px;
+	width: 62px;
+
+	background-image: url("assets/svg/skills-digital.svg");
+	background-size: contain;
+	background-repeat: no-repeat;
+}
+
+.item-skill__logo_video {
+	height: 50px;
+	width: 60px;
+
+	background-image: url("assets/svg/skills-video.svg");
+	background-size: contain;
+	background-repeat: no-repeat;
+}
+
+.item-skill__logo_retouch {
+	height: 50px;
+	width: 66px;
+
+	background-image: url("assets/svg/skills-retouch.svg");
+	background-size: contain;
+	background-repeat: no-repeat;
+}
+
+.item-skill__logo_audio {
+	height: 50px;
+	width: 32px;
+
+	background-image: url("assets/svg/skills-audio.svg");
+	background-size: contain;
+	background-repeat: no-repeat;
+}
+
+.item-skill__title {
+	font-weight: 700;
+	line-height: calc(40 / 20 * 100%);
+
+	margin-bottom: 20px;
+}
+
+.item-skill__text {
+	font-size: 18px;
+	line-height: calc(36 / 18 * 100%);
+	text-align: center;
+
+	@media (max-width: 768px) {
+		line-height: calc(22 / 18 * 100%);
+	}
+}
+
+//======== portfolio =============================================================================
+
+.portfolio__container {
+	padding-top: 100px;
+
+	@media (max-width: 768px) {
+		padding-top: 120px;
+	}
+}
+
+.portfolio__wrapper-buttons {
+	@media (max-width: 768px) {
+		margin: 0 auto;
+		max-width: 450px;
+	}
+}
+
+.portfolio__buttons {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	margin: 0px -2.5px;
+	margin-bottom: 55px; //! 60(отступ по макету) минус 5(margin-bottom: -5px; - см. ниже)
+
+	@media (max-width: 930px) {
+		flex-wrap: wrap;
+	}
+}
+
+.portfolio__column {
+	padding: 0px 2.5px; //! в сочетании с margin: 0px -2.5px; для portfolio__buttons делает отступы между колонками, кроме боковых
+	margin-bottom: 5px; //! в сочетании с margin-bottom: -5px; для portfolio__buttons даёт отступы между карточками при врапе, но без нижнего
+}
+
+.portfolio__row {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+
+	margin: 0px -12.5px;
+	margin-bottom: -25px;
+}
+
+.portfolio__wrap-img {
+	flex: 0 1 33.333%;
+
+	padding: 0px 12.5px; //! в сочетании с margin: 0px -12.5px; для portfolio__row делает отступы между фото, кроме боковых
+	margin-bottom: 25px; //! в сочетании с margin-bottom: -25px; для portfolio__row даёт отступы между карточками при врапе, но без нижнего
+
+	@media (max-width: 700px) {
+		min-width: 450px; //! минимальный размер, а то иконки уменьшаются, а не врапятся после того, как дописали то, что ниже:
+		img {
+			max-width: 100%; //! чтобы ничего не ломалось, если вдруг загрузят потом изображение большего размера
+		}
+	}
+	@media (max-width: 500px) {
+		min-width: 400px;
+	}
+
+	@media (max-width: 400px) {
+		min-width: 300px;
+	}
+}
+
+.portfolio__button:active {
+	background-color: #bdae82;
+	color: #000000;
+}
+
+//======== video ===============================================================================
+
+.video__container {
+	padding-top: 100px;
+
+	@media (max-width: 768px) {
+		padding: 0px; //! убираю отступы безопасности, чтобы картинка упёрлась в бока
+		padding-top: 80px;
+	}
+}
+
+//!------------------- Custom video player => -----------------------------
+
+.player {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	max-width: 1400px;
+
+	overflow: hidden;
+}
+
+// .player:fullscreen {
+// 	//! This css is only applied when fullscreen is active.
+// 	max-width: none;
+// 	width: 100%;
+// }
+
+.player__playBtn-svg {
+	position: absolute;
+
+	height: 130px;
+	width: 130px;
+
+	background-image: url("assets/svg/video-play.svg");
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center center;
+
+	background-color: transparent;
+
+	z-index: 11;
+
+	transition: 0.3s;
+
+	cursor: pointer;
+
+	&:hover {
+		filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%) contrast(87%);
+	}
+
+	@media (max-width: 768px) {
+		height: 65px;
+		width: 65px;
+	}
+}
+
+.player__video {
+	width: 100%;
+}
+
+.player__controls {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+
+	background: rgba(0, 0, 0, 0.1);
+
+	transform: translateY(100%) translateY(-5px); //! прячет панель управления вниз
+	transition: all 0.3s;
+}
+
+.player:hover .player__controls {
+	transform: translateY(0); //! при наведении показывает панель управления
+}
+
+.player:hover .progress {
+	height: 15px; //! при наведении на блок полоса прогресса на контрольной панели становится шире (15px)
+}
+
+.progress {
+	position: relative;
+	display: flex;
+
+	height: 5px;
+	transition: height 0.3s;
+	background: rgba(0, 0, 0, 0.5);
+	cursor: ew-resize;
+}
+
+.progress__filled {
+	width: 50%;
+	background: #bdae82;
+	flex-basis: 0%; //! на сколько процентов полоса прогресса зальётся цветом - это регулируется в JS
+}
+
+.player__details {
+	display: flex;
+	align-items: center;
+}
+
+.player__playButton {
+	min-width: 40px;
+	min-height: 36px;
+	margin: 10px;
+
+	cursor: pointer;
+	transition: 0.3s;
+
+	background-size: contain;
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-image: url("assets/svg/vp-play.svg"); //! смена иконки .player__playButton - если видео проигрывается
+
+	&:hover {
+		filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%) contrast(87%);
+	}
+}
+
+.pause {
+	background-image: url("assets/svg/vp-pause.svg"); //! смена иконки .player__playButton - если видео не проигрывается
+}
+
+.player__volumeButton {
+	min-width: 40px;
+	min-height: 36px;
+	margin: 10px;
+
+	cursor: pointer;
+	transition: 0.3s;
+
+	background-size: contain;
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-image: url("assets/svg/vp-volume.svg"); //! смена иконки .player__volumeButton - если есть звук
+
+	&:hover {
+		filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%) contrast(87%);
+	}
+}
+
+.mute {
+	background-image: url("assets/svg/vp-mute.svg"); //! смена иконки .player__volumeButton - если нет звука
+}
+
+.player__skip {
+	min-width: 50px;
+
+	line-height: 1;
+	color: #c8c8c8;
+	text-align: center;
+	font-weight: 600;
+	text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.8); //! чтобы были видны цифры на светлом фоне
+
+	background: none;
+
+	cursor: pointer;
+
+	&:hover {
+		color: #bdae82;
+	}
+}
+
+//! стилизация ползунков (input type="range"):
+
+.player__slider {
+	border-radius: 8px;
+	height: 7px;
+	outline: none;
+	transition: background 450ms ease-in;
+	-webkit-appearance: none;
+
+	&.volume {
+		background: linear-gradient(to right, #bdae82 0%, #bdae82 100%, #c8c8c8 100%, #c8c8c8 100%);
+	}
+
+	&.playbackRate {
+		background: linear-gradient(to right, #bdae82 0%, #bdae82 33%, #c8c8c8 33%, #c8c8c8 33%);
+	}
+}
+
+.player__slider::-webkit-slider-thumb {
+	//! кружочек слайдера
+	width: 20px;
+	height: 20px;
+	border-radius: 50%;
+	-webkit-appearance: none;
+
+	background: #434343;
+
+	cursor: ew-resize;
+}
+
+input[type="range"] {
+	-webkit-appearance: none;
+	width: 100%;
+	margin: 0 5px;
+}
+
+input[type="range"]:focus {
+	outline: none;
+}
+
+// input[type="range"]::-webkit-slider-runnable-track {
+// 	width: 100%;
+// 	height: 8.4px;
+// 	cursor: pointer;
+// 	box-shadow: 1px 1px 1px rgba(0, 0, 0, 0), 0 0 1px rgba(13, 13, 13, 0);
+// 	// background: rgba(255, 255, 255, 0.8);
+// 	// background: linear-gradient(to right, #82cfd0 0%, #82cfd0 40%, #fff 40%, #fff 100%);
+// 	background: linear-gradient(to right, #bdae82 0%, #bdae82 0%, #c8c8c8 0%, #c8c8c8 100%);
+// 	border-radius: 1.3px;
+// 	border: 0.2px solid rgba(1, 1, 1, 0);
+// }
+
+// input[type="range"]::-moz-range-track {
+// 	width: 100%;
+// 	height: 8.4px;
+// 	cursor: pointer;
+// 	box-shadow: 1px 1px 1px rgba(0, 0, 0, 0), 0 0 1px rgba(13, 13, 13, 0);
+// 	background: #ffffff;
+// 	border-radius: 1.3px;
+// 	border: 0.2px solid rgba(1, 1, 1, 0);
+// }
+
+// input[type="range"]::-moz-range-thumb {
+// 	box-shadow: 0 0 0 rgba(0, 0, 0, 0), 0 0 0 rgba(13, 13, 13, 0);
+// 	height: 15px;
+// 	width: 15px;
+// 	border-radius: 50px;
+// 	background: #ffc600;
+// 	cursor: pointer;
+// }
+
+//!------------------- <= Custom video player -----------------------------
+
+//======== price ===============================================================================
+
+.price__container {
+	padding-top: 100px;
+	padding-bottom: 100px; //! только в этой секции есть ещё и боттом у контейнера
+
+	@media (max-width: 768px) {
+		padding-top: 80px;
+		padding-bottom: 80px; //! только в этой секции есть ещё и боттом у контейнера
+	}
+}
+
+.price__row {
+	display: flex;
+	justify-content: center;
+
+	margin: 0px -12.5px;
+	margin-bottom: -50px;
+
+	@media (max-width: 930px) {
+		flex-wrap: wrap;
+	}
+}
+
+.price__column {
+	flex: 0 1 33.333%;
+	padding: 0px 12.5px; //! в сочетании с margin: 0px -12.5px; для price__row делает отступы между колонками, кроме боковых
+	margin-bottom: 50px; //! в сочетании с margin-bottom: -50px; для price__row даёт отступы между карточками при врапе, но без нижнего
+
+	@media (max-width: 930px) {
+		flex: 0 1 420px;
+		box-sizing: content-box; //! чтобы паддинги не входили в ширину 420рх
+	}
+}
+
+.item-price {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	height: 100%;
+
+	border: 2px solid #bdae82;
+
+	padding: 42px 10px; //! 10px - отступы безопасности
+}
+
+.item-price__title {
+	font-family: Merriweather;
+	font-weight: 700;
+	font-size: 28px;
+	line-height: calc(56 / 28 * 100%);
+	text-align: center;
+
+	margin-bottom: 20px;
+}
+
+.item-price__sum {
+	font-family: Merriweather;
+	font-weight: 700;
+	font-size: 24px;
+	line-height: calc(48 / 24 * 100%);
+	text-align: center;
+
+	color: #bdae82;
+
+	margin-bottom: 20px;
+}
+
+.item-price__details {
+	flex: 1 1 auto; //! на случай добавления ещё пунктов + height: 100%; в item-price
+
+	margin-bottom: 38px;
+}
+
+.item-price__item {
+	font-size: 18px;
+	line-height: calc(36 / 18 * 100%);
+	text-align: center;
+}
+
+.item-price__button:active {
+	background-color: transparent;
+	border: 2px solid #bdae82;
+}
+
+//======== contacts =============================================================================
+
+.contacts__container {
+	display: flex;
+	justify-content: flex-end;
+
+	padding: 60px 20px 0px 20px; //! левые 20 - отступы безопасности
+
+	height: 700px;
+	background-image: url("assets/img/contacts-bg.jpg");
+	background-position: center center;
+	background-repeat: no-repeat;
+
+	@media (max-width: 768px) {
+		justify-content: center;
+
+		padding: 60px 20px 0px 20px; //! 20px - отступы безопасности
+
+		height: 600px;
+		background-image: url("assets/img/contacts-bg-tablet.jpg");
+	}
+
+	@media (max-width: 730px) {
+		background-position: left center;
+	}
+}
+
+.contacts__box {
+	width: 450px;
+
+	display: flex;
+	flex-direction: column;
+}
+
+.contacts__title {
+	margin-bottom: 40px;
+}
+
+.section-title_different {
+	font-family: Merriweather;
+	font-style: normal;
+	font-weight: 700;
+	font-size: 40px;
+	line-height: calc(80 / 40 * 100%);
+	color: #bdae82;
+
+	@media (max-width: 768px) {
+		font-size: 32px;
+		line-height: calc(64 / 32 * 100%);
+		text-align: center;
+	}
+}
+
+.contacts__form {
+	display: flex;
+	flex-direction: column;
+
+	@media (max-width: 768px) {
+		align-items: center;
+	}
+}
+
+.contacts__input {
+	width: 450px;
+	height: 50px;
+	background: rgba(0, 0, 0, 0.5);
+	border: 2px solid #bdae82;
+
+	font-family: inherit;
+	font-size: 20px;
+	line-height: calc(40 / 20 * 100%);
+	color: #bdae82;
+
+	padding-left: 20px;
+	margin-bottom: 20px;
+
+	&::placeholder {
+		font-family: inherit;
+		font-size: 20px;
+		line-height: calc(40 / 20 * 100%);
+		color: #bdae82;
+	}
+
+	&:hover::placeholder {
+		color: #ffffff;
+	}
+
+	&:focus {
+		border: 2px solid #ffffff;
+		color: #ffffff;
+	}
+
+	&:focus::placeholder {
+		color: #ffffff;
+	}
+
+	@media (max-width: 730px) {
+		width: 400px;
+	}
+
+	@media (max-width: 500px) {
+		width: 300px;
+	}
+}
+
+.contacts__textarea {
+	width: 450px;
+	height: 100px;
+	background: rgba(0, 0, 0, 0.5);
+	border: 2px solid #bdae82;
+
+	font-family: inherit;
+	font-size: 20px;
+	line-height: calc(40 / 20 * 100%);
+	color: #bdae82;
+
+	padding-left: 20px;
+	margin-bottom: 30px;
+
+	&::placeholder {
+		font-family: inherit;
+		font-size: 20px;
+		line-height: calc(40 / 20 * 100%);
+		color: #bdae82;
+	}
+
+	&:hover::placeholder {
+		color: #ffffff;
+	}
+
+	&:focus {
+		border: 2px solid #ffffff;
+		color: #ffffff;
+	}
+
+	&:focus::placeholder {
+		color: #ffffff;
+	}
+
+	@media (max-width: 730px) {
+		width: 400px;
+	}
+
+	@media (max-width: 500px) {
+		width: 300px;
+	}
+}
+
+.contacts__button:active {
+	background-color: transparent;
+	border: 2px solid #bdae82;
+}
+//=========== _light-theme-... =====================================================================
+
+//! появляются при изменении тёмной темы на светлую (см. JS)
+
+._light-theme-sections {
+	background-color: #ffffff;
+	color: #000000;
+}
+
+._light-theme-titles {
+	background-image: url("assets/img/section-title-line-light-theme.png");
+
+	@media (max-width: 768px) {
+		min-width: 364px;
+
+		background-image: url("assets/img/section-title-line-tablet-light-theme.png");
+
+		margin-bottom: 50px;
+	}
+
+	@media (max-width: 520px) {
+		min-width: 280px;
+	}
+}
+
+._light-theme-buttons-portfolio {
+	color: #000000;
+
+	&:hover {
+		color: #000000;
+	}
+}
+
+._light-theme-buttons-price:active {
+	color: #000000;
+}
+
+//========= Эффект для кнопок (https://codepen.io/irinainina/pen/XWJmajM) =============================================================
+
+.bubbly-button {
+	font-family: "Helvetica", "Arial", sans-serif;
+	display: inline-block;
+	font-size: 1em;
+	padding: 1em 2em;
+	margin-top: 100px;
+	margin-bottom: 60px;
+	-webkit-appearance: none;
+	appearance: none;
+	background-color: #bdae82;
+	color: #fff;
+	border-radius: 4px;
+	border: none;
+	cursor: pointer;
+	position: relative;
+	transition: transform ease-in 0.1s, box-shadow ease-in 0.25s;
+	box-shadow: 0 2px 25px rgba(255, 0, 130, 0.5);
+}
+.button:focus {
+	outline: 0;
+}
+.button:before,
+.button:after {
+	position: absolute;
+	content: "";
+	display: block;
+	width: 140%;
+	height: 100%;
+	left: -20%;
+	z-index: -1000;
+	transition: all ease-in-out 0.5s;
+	background-repeat: no-repeat;
+}
+.button:before {
+	display: none;
+	top: -75%;
+	background-image: radial-gradient(circle, #bdae82 20%, transparent 20%),
+		radial-gradient(circle, transparent 20%, #bdae82 20%, transparent 30%),
+		radial-gradient(circle, #bdae82 20%, transparent 20%), radial-gradient(circle, #bdae82 20%, transparent 20%),
+		radial-gradient(circle, transparent 10%, #bdae82 15%, transparent 20%),
+		radial-gradient(circle, #bdae82 20%, transparent 20%), radial-gradient(circle, #bdae82 20%, transparent 20%),
+		radial-gradient(circle, #bdae82 20%, transparent 20%), radial-gradient(circle, #bdae82 20%, transparent 20%);
+	background-size: 10% 10%, 20% 20%, 15% 15%, 20% 20%, 18% 18%, 10% 10%, 15% 15%, 10% 10%, 18% 18%;
+}
+.button:after {
+	display: none;
+	bottom: -75%;
+	background-image: radial-gradient(circle, #bdae82 20%, transparent 20%),
+		radial-gradient(circle, #bdae82 20%, transparent 20%),
+		radial-gradient(circle, transparent 10%, #bdae82 15%, transparent 20%),
+		radial-gradient(circle, #bdae82 20%, transparent 20%), radial-gradient(circle, #bdae82 20%, transparent 20%),
+		radial-gradient(circle, #bdae82 20%, transparent 20%), radial-gradient(circle, #bdae82 20%, transparent 20%);
+	background-size: 15% 15%, 20% 20%, 18% 18%, 20% 20%, 15% 15%, 10% 10%, 20% 20%;
+}
+.button:active {
+	transform: scale(0.9);
+	background-color: #c0ac71e3;
+	box-shadow: 0 2px 25px rgba(192, 172, 113, 0.8);
+}
+.button.animate:before {
+	display: block;
+	animation: topBubbles ease-in-out 0.75s forwards;
+}
+.button.animate:after {
+	display: block;
+	animation: bottomBubbles ease-in-out 0.75s forwards;
+}
+@keyframes topBubbles {
+	0% {
+		background-position: 5% 90%, 10% 90%, 10% 90%, 15% 90%, 25% 90%, 25% 90%, 40% 90%, 55% 90%, 70% 90%;
+	}
+	50% {
+		background-position: 0% 80%, 0% 20%, 10% 40%, 20% 0%, 30% 30%, 22% 50%, 50% 50%, 65% 20%, 90% 30%;
+	}
+	100% {
+		background-position: 0% 70%, 0% 10%, 10% 30%, 20% -10%, 30% 20%, 22% 40%, 50% 40%, 65% 10%, 90% 20%;
+		background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
+	}
+}
+@keyframes bottomBubbles {
+	0% {
+		background-position: 10% -10%, 30% 10%, 55% -10%, 70% -10%, 85% -10%, 70% -10%, 70% 0%;
+	}
+	50% {
+		background-position: 0% 80%, 20% 80%, 45% 60%, 60% 100%, 75% 70%, 95% 60%, 105% 0%;
+	}
+	100% {
+		background-position: 0% 90%, 20% 90%, 45% 70%, 60% 110%, 75% 80%, 95% 70%, 110% 10%;
+		background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
+	}
+}
+
+//================================================================================================
+
+// Подключение footer
+@import "_footer";
+
+//================================================================================================

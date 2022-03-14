@@ -1,0 +1,288 @@
+.header__container {
+	background-image: url("assets/img/hero-bg.jpg");
+	background-position: center 0px;
+	background-repeat: no-repeat;
+
+	@media (max-width: 768px) {
+		background-image: url("assets/img/hero-bg-tablet.jpg");
+	}
+
+	@media (max-width: 650px) {
+		background-position: right 0px;
+	}
+}
+
+.header__row {
+	display: flex;
+	align-items: center;
+
+	min-height: 90px;
+
+	@media (max-width: 500px) {
+		//! после того как уменьшила отступы м/у элементами, врап оказался не нужен, оставила на всякий случай:
+		flex-wrap: wrap;
+		justify-content: flex-end;
+	}
+}
+
+.header__link {
+	display: block;
+	width: 50px;
+	height: 50px;
+
+	margin: 0px 20px;
+	line-height: calc(50 / 20 * 100%);
+
+	background-image: url("assets/svg/header-logo.svg");
+	background-size: contain;
+	background-repeat: no-repeat;
+	transition: 0.5s;
+
+	cursor: pointer;
+
+	&:hover {
+		filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%) contrast(87%);
+	}
+
+	@media (max-width: 768px) {
+		margin: 0px 60px;
+	}
+
+	@media (max-width: 500px) {
+		margin: 0px 20px;
+	}
+}
+
+.header__menu {
+	margin-left: auto;
+}
+
+.menu__icon {
+	display: none; //! иконка бургера (три полоски) пока не видна
+
+	@media (max-width: 768px) {
+		display: block;
+		position: relative;
+		min-width: 50px; //! при жёстком width крестик иконка меню уменьшалась на малом размере экрана
+		height: 28px;
+		cursor: pointer;
+		z-index: 5;
+
+		margin-right: 64px;
+	}
+
+	&::before,
+	&::after {
+		@media (max-width: 768px) {
+			content: "";
+		}
+	}
+
+	&::before,
+	&::after,
+	span {
+		@media (max-width: 768px) {
+			right: 0px;
+			position: absolute;
+			height: 3px;
+			width: 100%;
+			background-color: #ffffff;
+
+			transition: all 0.5s ease 0s;
+		}
+	}
+
+	&::before {
+		@media (max-width: 768px) {
+			top: 0px; //! рисуем верхнюю линию бургера
+		}
+	}
+
+	&::after {
+		@media (max-width: 768px) {
+			bottom: 0px; //! рисуем нижнюю линию бургера
+		}
+	}
+
+	span {
+		@media (max-width: 768px) {
+			top: 50%;
+			transform: scale(1) translate(0px, -50%); //! рисуем среднюю линию бургера
+		}
+	}
+
+	//! При нажатии иконки бургера три полоски превращаются в крестик (см. JS):
+	&._active {
+		width: 60px; //! увеличиваю длину палочек, чтобы ширина крестика соответствовала макету
+
+		margin-right: 58px; //! для крестика пришлось уменьшить отступ, а то он ползёт влево
+
+		span {
+			transform: scale(0) translate(0px, -50%); //! убираем среднюю линию бургера
+		}
+
+		&::before {
+			top: 50%;
+			transform: rotate(-45deg) translate(0px, -50%);
+		}
+
+		&::after {
+			bottom: 50%;
+			transform: rotate(45deg) translate(0px, 50%);
+		}
+	}
+
+	@media (max-width: 500px) {
+		margin-right: 20px;
+	}
+}
+
+.menu__body {
+	@media (max-width: 768px) {
+		position: fixed;
+		top: 0px;
+		right: -100%; //! уводим меню вправо
+		max-width: 620px;
+		width: 100%;
+		height: 100%;
+		background-color: #000000;
+
+		transition: right 0.5s ease 0s;
+
+		overflow: auto; //! необходимо всегда писать в бургере, чтобы можно было прокручивать пункты меню, если их много
+
+		z-index: 5; //! прописала чтобы перекрыть кнопку. Из-за эффектов сделала её relative и она накрывала открытый бургер
+	}
+
+	//! При нажатии иконки бургера появляется меню (см. JS):
+	&._active {
+		right: 0px; //! показываем меню
+
+		box-shadow: -148px 0px 0px rgba(0, 0, 0, 0.7); //! для затемнения фона слева - вместо псевдоэлемента
+
+		// &::after {  //! для затемнения фона слева - псевдоэлемент (затемняет меню в светлой теме!!!)
+		// 	content: "";
+		// 	width: 100%;
+		// 	height: 100%;
+		// 	position: fixed;
+		// 	top: 0;
+		// 	left: 0;
+		// 	background: #000;
+		// 	z-index: -1;
+		// 	opacity: 0.5;
+		// }
+	}
+}
+
+.menu__list {
+	display: flex;
+
+	padding: 0px 32px;
+
+	& > *:not(:last-child) {
+		margin: 0px 31px 0px 0px;
+	}
+
+	@media (max-width: 768px) {
+		flex-direction: column;
+
+		padding: 134px 20px 0px 127px; //! 20px - безопасность
+
+		& > *:not(:last-child) {
+			margin: 0px 0px 16px 0px;
+		}
+	}
+}
+
+.menu__link {
+	display: block;
+
+	color: inherit;
+
+	transition: all 0.5s ease 0s;
+
+	&:hover {
+		color: #bdae82;
+	}
+
+	@media (max-width: 768px) {
+		font-size: 35px;
+		line-height: calc(73 / 35 * 100%);
+	}
+}
+
+.lang {
+	display: flex;
+	font-weight: 700;
+
+	// padding-right: 30px;
+
+	& > *:not(:last-child) {
+		margin: 0px 10px 0px 0px;
+	}
+}
+
+.lang__en {
+	cursor: pointer;
+
+	&:hover {
+		color: #bdae82;
+	}
+}
+
+.lang__ru {
+	cursor: pointer;
+
+	&:hover {
+		color: #bdae82;
+	}
+}
+
+.header__theme {
+	display: block;
+	min-width: 45px;
+	min-height: 45px;
+
+	margin: 0px 20px 0px 30px;
+
+	background-image: url("assets/svg/dark-theme-moon.svg");
+	background-size: contain;
+	background-repeat: no-repeat;
+	transition: 0.5s;
+
+	cursor: pointer;
+
+	&:hover {
+		filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%) contrast(87%);
+	}
+
+	@media (max-width: 768px) {
+		margin: 0px 30px 0px 30px;
+	}
+
+	@media (max-width: 500px) {
+		margin: 0px 20px 0px 20px;
+	}
+}
+
+._light-theme-icon {
+	background-image: url("assets/svg/light-theme-sun.svg");
+}
+
+._light-theme-burger-open {
+	@media (max-width: 768px) {
+		color: #000000;
+		background-color: #ffffff;
+	}
+}
+
+._light-theme-cross {
+	&._active {
+		&::before,
+		&::after {
+			@media (max-width: 768px) {
+				background-color: #000000;
+			}
+		}
+	}
+}
